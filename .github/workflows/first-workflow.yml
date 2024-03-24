@@ -3,25 +3,31 @@ name: CI workflow
 on: [push]
 
 jobs:
-  build:
+  info:
     runs-on: ubuntu-latest
-    name: A job to build code
+    name: Information Gathering
 
     steps:
-      - name: Install dependances
-        run: echo "Hello, I'm Installing the dependances of your code!"
+      - name: print PWD
+        run: pwd
+        
+      - name: kernel info
+        run: uname -a
 
-      - name: Testing
-        run: echo "Testing the code"
+      - name: ip address
+        run: ip addr
         
-      - name: Packaging 
-        run: echo "Packaging the image"
+      - name: available commands
+        run: ls /usr/bin
         
-  Publish:
+  permissions:
     runs-on: ubuntu-latest
-    name: A job to Publish code
+    name: A job to find user permissions
 
     steps:
-      - name: Publishing the Image
-        run: echo "Publishing the final image"
+      - name: get user id
+        run: id
+      - name: home info
+        run: ls -ald $HOME
+      
 
